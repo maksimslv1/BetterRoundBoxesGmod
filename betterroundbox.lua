@@ -40,8 +40,9 @@ function betterRB.GetRoundedBoxMaterial(round, w, h, tl, tr, bl, br, callback)
 
             local mat = CreateMaterial(shortName, "UnlitGeneric", {
                 ["$basetexture"] = rT:GetName(),
-                ["$translucent"] = "1",
-                ["$vertexcolor"] = "1"
+                ["$translucent"] = 1,
+                ["$vertexcolor"] = 1,
+                ["$vertexalpha"] = 1
             })
         cam.End2D()
         render.PopRenderTarget()
