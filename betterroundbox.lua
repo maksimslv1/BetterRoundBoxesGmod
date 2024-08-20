@@ -27,15 +27,18 @@ function betterRB.GetRoundedBoxMaterial(round, w, h, tl, tr, bl, br, callback)
 
             -- создание кэша в файлах
             if useFilesCache then
-                local data = render.Capture({
-                    format = "png",
-                    x = 0,
-                    y = 0,
-                    w = w,
-                    h = h,
-                    alpha = true
-                })
-                file.Write(string.format("rBoxes/b%u_%u_%u_%d%d%d%d.png", round, w, h, boolToNum(tl), boolToNum(tr), boolToNum(bl), boolToNum(br)), data)
+                local file_name = string.format("rBoxes/b%u_%u_%u_%d%d%d%d.png", round, w, h, boolToNum(tl), boolToNum(tr), boolToNum(bl), boolToNum(br))
+                if not file.Exists(file_name, "DATA") then
+                    local data = render.Capture({
+                        format = "png",
+                        x = 0,
+                        y = 0,
+                        w = w,
+                        h = h,
+                        alpha = true
+                    })
+                    file.Write(file_name, data)
+                end
             end
 
             local mat = CreateMaterial(shortName, "UnlitGeneric", {
