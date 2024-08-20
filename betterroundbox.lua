@@ -11,12 +11,17 @@ local function boolToNum(b)
     return b and 1 or 0
 end
 
+local times = {}
+
 function betterRB.GetRoundedBoxMaterial(round, w, h, tl, tr, bl, br, callback)
     w, h = math.floor(w), math.floor(h)
     local shortName = string.format("b%u_%u_%u_%d%d%d%d", round, w, h, boolToNum(tl), boolToNum(tr), boolToNum(bl), boolToNum(br))
     if cache[shortName] then
         return cache[shortName]
     end
+
+    times[shortName] = times[shortName] and (times[shortName] >= 2 and 2 or times[shortName] + 1) or 0
+    if times[shortName] < 2 then return end
 
     hook.Add("PostRender", "betterRB", function()
         local rT = GetRenderTarget(shortName, w, h)
@@ -58,6 +63,8 @@ function betterRB.DrawRoundedBoxEx(round, x, y, w, h, color, tl, tr, bl, br)
         surface.SetDrawColor(color.r, color.g, color.b, color.a)
         surface.SetMaterial(mat)
         surface.DrawTexturedRect(x, y, w, h)
+    else
+        draw.RoundedBoxEx(round, x, y, w, h, color, tl, tr, bl, br)
     end
 end
 function betterRB.DrawRoundedBox(round, x, y, w, h, color)
@@ -66,6 +73,8 @@ function betterRB.DrawRoundedBox(round, x, y, w, h, color)
         surface.SetDrawColor(color.r, color.g, color.b, color.a)
         surface.SetMaterial(mat)
         surface.DrawTexturedRect(x, y, w, h)
+    else
+        draw.RoundedBox(round, x, y, w, h, color)
     end
 end
 
@@ -88,4 +97,5 @@ concommand.Add("betterRBDebug", function(ply, _, args)
     hook.Add("HUDPaint", "HUDPaint_DrawABox", function()
         betterRB.DrawRoundedBoxEx(30, 0, 0, 250, 250, color_white, false, false, true, true)
     end)
+    PrintTable(times)
 end)
