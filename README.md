@@ -4,10 +4,10 @@
 ## Использование:
 
 ### Аналог `draw.RoundedBoxEx`
-#### [`betterRB.DrawRoundedBoxEx`](https://github.com/maksimslv1/BetterRoundBoxesGmod/blob/master/betterroundbox.lua#L52-L56)( `number` cornerRadius, `number` x, `number` y, `number`width, `number` height, `table` color, `boolean` roundTopLeft = false, `boolean`roundTopRight = false, `boolean` roundBottomLeft = false, `boolean`roundBottomRight = false ) -> nil
+#### [`betterRB.DrawRoundedBoxEx`](https://github.com/maksimslv1/BetterRoundBoxesGmod/blob/master/betterroundbox.lua#L52-L56)( `number` cornerRadius, `number` x, `number` y, `number` width, `number` height, `table` color, `boolean` roundTopLeft = false, `boolean` roundTopRight = false, `boolean` roundBottomLeft = false, `boolean` roundBottomRight = false ) -> nil
 
 
-### Аналог ``draw.RoundedBox``
+### Аналог `draw.RoundedBox`
 #### [`betterRB.DrawRoundedBox`](https://github.com/maksimslv1/BetterRoundBoxesGmod/blob/master/betterroundbox.lua#L57-L61)( `number` cornerRadius, `number` x, `number` y, `number` width, `number` height, `table` color ) -> nil
 
 ### Функция для получения материала нужного размера с нужным закруглением
