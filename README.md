@@ -1,19 +1,20 @@
+[ English   |   [Russian](https://github.com/exilaurora/BetterRoundBoxesGmod/blob/main/README-RU.md) ]
 # BetterRoundBoxesGmod
- Оптимизированный рендеринг закругленных квадратов в Garry's mod
+ Optimized rendering of rounded rectangles in Garry's Mod
 
-<!-- ### Настоятельно рекомендую использовать [менее оптимизированную версию](https://github.com/maksimslv1/BetterRoundBoxesGmod/tree/AnimationsLovers) на случай использования этой библиотеки с анимациями. Она сохранит оперативную память -->
+### This library is now outdated, as there are more modern solutions. For example, [RNDX](https://github.com/Srlion/RNDX)
 
-## Использование:
+## Usage:
 
-### Аналог `draw.RoundedBoxEx`
-#### [`betterRB.DrawRoundedBoxEx`](https://github.com/maksimslv1/BetterRoundBoxesGmod/blob/master/betterroundbox.lua#L37-L41)( `number` cornerRadius, `number` x, `number` y, `number` width, `number` height, `table` color, `boolean` roundTopLeft = false, `boolean` roundTopRight = false, `boolean` roundBottomLeft = false, `boolean` roundBottomRight = false ) -> nil
+### Analog of the `draw.RoundedBoxEx` function
+#### [`betterRB.DrawRoundedBoxEx`](https://github.com/maksimslv1/BetterRoundBoxesGmod/blob/master/betterroundbox.lua#L41-L46)( `number` cornerRadius, `number` x, `number` y, `number` width, `number` height, `table` color, `boolean` roundTopLeft = false, `boolean` roundTopRight = false, `boolean` roundBottomLeft = false, `boolean` roundBottomRight = false ) -> nil
 
 
-### Аналог `draw.RoundedBox`
-#### [`betterRB.DrawRoundedBox`](https://github.com/maksimslv1/BetterRoundBoxesGmod/blob/master/betterroundbox.lua#L43-L47)( `number` cornerRadius, `number` x, `number` y, `number` width, `number` height, `table` color ) -> nil
+### Analog of the `draw.RoundedBox` function
+#### [`betterRB.DrawRoundedBox`](https://github.com/maksimslv1/BetterRoundBoxesGmod/blob/master/betterroundbox.lua#L48-L50)( `number` cornerRadius, `number` x, `number` y, `number` width, `number` height, `table` color ) -> nil
 
-### Функция для получения материала нужного размера с нужным закруглением
-#### [`betterRB.GetRoundedBoxMaterial`](https://github.com/maksimslv1/BetterRoundBoxesGmod/blob/master/betterroundbox.lua#L11-L35)( `number` cornerRadius, `number` w, `number` h, `boolean` tl, `boolean` tr, `boolean` bl, `boolean` br ) -> iMaterial
+### Function to get a material of the required size with the required rounding
+#### [`betterRB.GetRoundedBoxMaterial`](https://github.com/maksimslv1/BetterRoundBoxesGmod/blob/master/betterroundbox.lua#L15-L39)( `number` cornerRadius, `number` width, `number` height, `boolean` tl, `boolean` tr, `boolean` bl, `boolean` br ) -> iMaterial
 
-## Важно
- Если вы хотите использовать эту библиотеку вместе с анимациями наподобие `Panel:SizeTo` - удостоверьтесь, что функции оптимизированного рендеринга не вызываются. Иначе вы забьёте оперативную память ненужным кэшом.
+## Important
+ If you plan to use this library together with animations like `Panel:SizeTo` — make sure the optimized rendering functions are not being called. Otherwise you'll fill RAM with unnecessary cache.
